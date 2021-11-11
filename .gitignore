@@ -1,0 +1,7 @@
+# Environment
+/venv
+**.env
+
+# Dependencies
+**/node_modules
+client/node_modules
