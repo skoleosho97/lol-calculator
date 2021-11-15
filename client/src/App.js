@@ -7,7 +7,9 @@ import '../public/css/styles.css';
 
 const App = () => {
     const styles = {
-        height: '100%',
+        display: 'flex',
+        flexFlow: 'column',
+        height: '100vh',
     };
 
     return (

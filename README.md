@@ -1,3 +1,3 @@
-## League of Legends Calculator
+# League of Legends Calculator
 
-# Description TBA.
+## Description TBA.

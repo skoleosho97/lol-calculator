@@ -7,7 +7,7 @@ const itemSchema = new Schema({
         required: true
     },
     icon: {
-        type: String,
+        type: String
     },
     type: {
         type: String,

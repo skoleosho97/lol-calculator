@@ -8,6 +8,7 @@ export default class Calculator extends Component {
         this.state = {
             items: [],
             total: 0,
+            type: null,
         };
     };
 
@@ -26,13 +27,26 @@ export default class Calculator extends Component {
     
 
     render() {
+
         return (
-            <div>
-                <div className='content'>
-                    <div className='total'>{this.state.total}</div>
+            <div className='content'>
+                <div className='total-wrap'>
+                    <div className='total'>
+                        <span className='total-txt'>
+                            Total Stats
+                        </span>
+                        <span className='total-amt'>
+                            {this.state.total}
+                        </span>
+                        <span className='total-type'>
+                            {this.state.type ? this.state.type : 'NA'}
+                        </span>
+                    </div>
+                </div>
+                <div className='items-wrap'>
                     <div className='items'>
                         {this.state.items.map((item) => (
-                            <img src={item.icon} alt={item.name} />
+                            <div className='item'></div>
                         ))}
                     </div>
                 </div>

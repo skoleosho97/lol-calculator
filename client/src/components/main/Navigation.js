@@ -3,12 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
     return (
-        <div>
-            <div className='nav'>
-                <NavLink className='brand' to='/'>
+        <div className='nav'>
+            <NavLink className='brand' to='/'>
                     League of Legends Calculator
-                </NavLink>
-            </div>
+            </NavLink>
         </div>
     );
 };
