@@ -24,9 +24,31 @@ export default class Calculator extends Component {
 
     //componentWillUnmount() {};
 
-    
+    onSelection(item) {
+        if (this.state.total === 0) {
+            this.setState({
+                type: item.type.toUpperCase(),
+                total: this.state.total + item.stat
+            })
+        } else {
+            if (this.state.type === item.type) {
+                this.setState({
+                    total: this.state.total + item.stat
+                })
+            }
+        }
+    };
 
     render() {
+
+        const itemStyle = (itemData) => ({
+            width: '50px',
+            height: '50px',
+            backgroundColor: 'lightblue',
+            backgroundImage: itemData.icon ? `url(${itemData.icon})` : 'none',
+            cursor: 'pointer',
+            borderRadius: '5px',
+        });
 
         return (
             <div className='content'>
@@ -46,7 +68,16 @@ export default class Calculator extends Component {
                 <div className='items-wrap'>
                     <div className='items'>
                         {this.state.items.map((item) => (
-                            <div className='item'></div>
+                            <div onClick={this.onSelection.bind(this, item)} style={itemStyle(item)} className='_item'>
+                                <div className='hidden'>
+                                    {item.name}
+                                    <hr />
+                                    {(item.passive) ? 
+                                        `Stat Bonus: +${item.stat} ${item.type.toUpperCase()}` : 
+                                        `Stat Bonus: +${item.stat} ${item.type.toUpperCase()} + % ${item.passive*100}`
+                                    }
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
