@@ -7,7 +7,12 @@ const itemSchema = new Schema({
         required: true
     },
     icon: {
-        type: String
+        type: String,
+        required: true
+    },
+    class: {
+        type: String,
+        required: true
     },
     type: {
         type: String,
@@ -15,6 +20,10 @@ const itemSchema = new Schema({
     },
     stat: {
         type: Number,
+        required: true
+    },
+    limit: {
+        type: Boolean,
         required: true
     },
     passive: {

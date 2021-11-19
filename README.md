@@ -3,6 +3,12 @@ Basic MERN-stack application that calculates expected stats based on chosen item
 
 ## Update Log
 11/15 - Adding front-end design.
+11/19 - Altering database headers; beginning the process of troubleshooting issues.
+
+## Things To Fix
+- [ ] Fix images not showing up on front-end
+- [ ] Fix overflow issue with items
+- [ ] Adjust database objects
 
 ## Planned Additions
 - [ ] Full Item Directory

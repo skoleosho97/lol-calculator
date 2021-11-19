@@ -8,7 +8,14 @@ export default class Calculator extends Component {
         this.state = {
             items: [],
             total: 0,
+            count: 0,
             type: null,
+            selected_1: null,
+            selected_2: null,
+            selected_3: null,
+            selected_4: null,
+            selected_5: null,
+            selected_6: null,
         };
     };
 
@@ -26,6 +33,7 @@ export default class Calculator extends Component {
 
     onSelection(item) {
         if (this.state.total === 0) {
+            count++;
             this.setState({
                 type: item.type.toUpperCase(),
                 total: this.state.total + item.stat
@@ -42,17 +50,19 @@ export default class Calculator extends Component {
     render() {
 
         const itemStyle = (itemData) => ({
-            width: '50px',
-            height: '50px',
-            backgroundColor: 'lightblue',
-            backgroundImage: itemData.icon ? `url(${itemData.icon})` : 'none',
-            cursor: 'pointer',
-            borderRadius: '5px',
+            backgroundImage: `url(${itemData.icon})`,
+        });
+
+        const selectedItemStyle = (itemData) => ({
+            backgroundImage: itemData.icon ? `url(${itemData.icon})` : 'none'
         });
 
         return (
             <div className='content'>
                 <div className='total-wrap'>
+                    <div className='filter'>
+                        Filter
+                    </div>
                     <div className='total'>
                         <span className='total-txt'>
                             Total Stats
@@ -64,7 +74,21 @@ export default class Calculator extends Component {
                             {this.state.type ? this.state.type : 'NA'}
                         </span>
                     </div>
+                    <div className='clear'>
+                        Clear
+                    </div>
                 </div>
+                <div className='selected-items-wrap'>
+                    <div className='selected-items'>
+                        <div style={selectedItemStyle(this.state.selected_1)} className='selected-item'></div>
+                        <div style={selectedItemStyle(this.state.selected_2)} className='selected-item'></div>
+                        <div style={selectedItemStyle(this.state.selected_3)} className='selected-item'></div>
+                        <div style={selectedItemStyle(this.state.selected_4)} className='selected-item'></div>
+                        <div style={selectedItemStyle(this.state.selected_5)} className='selected-item'></div>
+                        <div style={selectedItemStyle(this.state.selected_6)} className='selected-item'></div>
+                    </div>
+                </div>
+
                 <div className='items-wrap'>
                     <div className='items'>
                         {this.state.items.map((item) => (
@@ -72,7 +96,7 @@ export default class Calculator extends Component {
                                 <div className='hidden'>
                                     {item.name}
                                     <hr />
-                                    {(item.passive) ? 
+                                    {(item.passive === null) ? 
                                         `Stat Bonus: +${item.stat} ${item.type.toUpperCase()}` : 
                                         `Stat Bonus: +${item.stat} ${item.type.toUpperCase()} + % ${item.passive*100}`
                                     }
