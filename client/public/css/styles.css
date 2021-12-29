@@ -27,8 +27,7 @@ html, body {
    flex: 1 1 auto;
 
    /** Decorations */
-   display: flex;
-   flex-flow: column;
+
 }
 
 .total-wrap {
