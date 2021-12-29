@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Navigation from './components/main/Navigation';
-import Calculator from './components/main/Calculator';
+import Navigation from './components/Navigation';
+import Calculator from './components/Calculator';
 import '../public/css/styles.css';
 
 const App = () => {
