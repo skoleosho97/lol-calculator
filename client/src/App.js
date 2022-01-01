@@ -1,19 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
+import Header from './components/Header';
 import Calculator from './components/Calculator';
-import '../public/css/styles.css';
 
 const App = () => {
-    const styles = {
-        display: 'flex',
-        flexFlow: 'column',
-        height: '100vh',
-    };
-
     return (
-        <div style={styles}>
+        <div className='wrap __wrap'>
             <Route path='/'>
+                <Header />
                 <Calculator />
             </Route>
         </div>
